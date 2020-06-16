@@ -3,7 +3,7 @@ import Palette from './components/Palette'
 
 import { seedColors } from './utils'
 
-function App() {
+const App = () => {
   return (
     <div>
       <Palette {...seedColors[0]} />
