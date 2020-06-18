@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react'
-import styled from '@emotion/styled'
 import ColorBox from '../ColorBox'
+
+import './palette.scss'
 
 const Palette = ({ colors }) => {
   const colorBoxes = useMemo(
@@ -10,23 +11,12 @@ const Palette = ({ colors }) => {
   )
 
   return (
-    <StyledPalette className="palette">
+    <div className="palette">
       {/* Navbar */}
-      <ColorsGrid>{colorBoxes}</ColorsGrid>
+      <div className="palette__colors-grid">{colorBoxes}</div>
       {/* Footer */}
-    </StyledPalette>
+    </div>
   )
 }
-
-const StyledPalette = styled.div`
-  height: 100vh;
-`
-
-const ColorsGrid = styled.div`
-  height: 90vh;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-`
 
 export default Palette

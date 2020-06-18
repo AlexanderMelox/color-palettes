@@ -1,51 +1,20 @@
 import React from 'react'
-import styled from '@emotion/styled'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+
+import './color-box.scss'
 
 const ColorBox = ({ color, name }) => (
-  <StyledColorBox color={color}>
-    <CopyContainer>
-      <BoxContent>
-        <span>{name}</span>
-      </BoxContent>
-      <CopyButton>Copy</CopyButton>
-    </CopyContainer>
-    <SeeMore>More</SeeMore>
-  </StyledColorBox>
+  <CopyToClipboard text={color}>
+    <div className="color-box" style={{ background: color }}>
+      <div className="color-box__copy-container">
+        <div className="color-box__content">
+          <span>{name}</span>
+        </div>
+        <button className="color-box__copy-button">Copy</button>
+      </div>
+      <div className="color-box__see-more">More</div>
+    </div>
+  </CopyToClipboard>
 )
-
-const StyledColorBox = styled.div`
-  position: relative;
-  cursor: pointer;
-  background-color: ${(props) => props.color};
-`
-
-const CopyContainer = styled.div``
-
-const BoxContent = styled.div``
-
-const CopyButton = styled.button`
-  width: 100px;
-  height: 30px;
-  position: absolute;
-  display: inline-block;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  outline: none;
-  background: rgba(255, 255, 255, 0.3);
-  font-size: 1rem;
-  line-height: 30px;
-  color: white;
-  text-transform: uppercase;
-  border: none;
-  opacity: 0;
-
-  ${StyledColorBox}:hover {
-    opacity: 0;
-  }
-`
-
-const SeeMore = styled.span``
 
 export default ColorBox

@@ -1,0 +1,10 @@
+.palette {
+  height: 100vh;
+
+  &__colors-grid {
+    height: 90vh;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+  }
+}
