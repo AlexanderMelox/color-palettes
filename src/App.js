@@ -1,7 +1,9 @@
 import React from 'react'
 import Palette from './components/Palette'
 
-import { seedColors } from './utils'
+import { seedColors, generatePalette } from './utils'
+
+generatePalette(seedColors[0])
 
 const App = () => {
   return (
