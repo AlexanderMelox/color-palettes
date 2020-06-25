@@ -1,0 +1,53 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 6vh;
+}
+
+.navbar__logo {
+  display: flex;
+  align-items: center;
+
+  margin-right: 15px;
+  padding: 0 13px;
+  font-size: 22px;
+  background-color: #eceff1;
+  align-self: stretch;
+}
+
+.navbar__logo a:link,
+.navbar__logo a:active {
+  text-decoration: none;
+  color: #333;
+}
+
+.slider {
+  width: 340px;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.rc-slider-track {
+  background-color: transparent;
+}
+
+.rc-slider-handle {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    background-color: green;
+    outline: none;
+    border: 2px solid green;
+    box-shadow: none;
+    width: 13px;
+    height: 13px;
+    margin-left: -7px;
+    margin-top: -3px;
+  }
+}
+
+.rc-slider-rail {
+  height: 8px;
+}

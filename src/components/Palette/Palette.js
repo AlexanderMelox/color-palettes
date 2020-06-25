@@ -1,10 +1,8 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useCallback } from 'react'
 import ColorBox from '../ColorBox'
-import Slider from 'rc-slider'
-import 'rc-slider/assets/index.css'
+import Navbar from '../Navbar'
 
 import './palette.scss'
-import { useCallback } from 'react'
 
 const Palette = ({ palette }) => {
   const [level, setLevel] = useState(500)
@@ -18,15 +16,7 @@ const Palette = ({ palette }) => {
 
   return (
     <div className="palette">
-      <div className="slider">
-        <Slider
-          min={100}
-          max={900}
-          step={100}
-          defaultValue={level}
-          onChange={onSliderChange}
-        />
-      </div>
+      <Navbar level={level} onSliderChange={onSliderChange} />
       <div className="palette__colors-grid">{colorBoxes}</div>
       {/* Footer */}
     </div>
