@@ -5,6 +5,7 @@ const levels = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 const generatePalette = (starterPalette) => {
   const newPalette = {
     ...starterPalette,
+    // Creates an obj with keys as the levels of colors
     colors: levels.reduce((obj, level) => {
       obj[level] = []
       return obj
@@ -27,7 +28,7 @@ const generatePalette = (starterPalette) => {
     )
   })
 
-  console.log(newPalette)
+  return newPalette
 }
 
 const getRange = (hexColor) => {

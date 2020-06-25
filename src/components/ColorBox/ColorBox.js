@@ -18,7 +18,7 @@ const variants = {
   },
 }
 
-const ColorBox = ({ color, name }) => {
+const ColorBox = ({ hex, name }) => {
   const [copied, setCopied] = useState(false)
 
   const onCopy = useCallback(async () => {
@@ -28,14 +28,14 @@ const ColorBox = ({ color, name }) => {
   }, [])
 
   return (
-    <CopyToClipboard text={color} onCopy={onCopy}>
-      <div className="color-box" style={{ background: color }}>
+    <CopyToClipboard text={hex} onCopy={onCopy}>
+      <div className="color-box" style={{ background: hex }}>
         <AnimatePresence>
           {copied && (
             <motion.div initial="hide" animate="show" exit="leave">
               <motion.div
                 className="color-box__overlay"
-                style={{ backgroundColor: color }}
+                style={{ backgroundColor: hex }}
                 variants={variants.overlay}
               />
               <motion.div
@@ -43,7 +43,7 @@ const ColorBox = ({ color, name }) => {
                 className="color-box__overlay-content"
               >
                 <h1>Copied!</h1>
-                <p>{color}</p>
+                <p>{hex}</p>
               </motion.div>
             </motion.div>
           )}
