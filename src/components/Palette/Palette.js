@@ -18,13 +18,15 @@ const Palette = ({ palette }) => {
 
   return (
     <div className="palette">
-      <Slider
-        min={100}
-        max={900}
-        step={100}
-        defaultValue={level}
-        onChange={onSliderChange}
-      />
+      <div className="slider">
+        <Slider
+          min={100}
+          max={900}
+          step={100}
+          defaultValue={level}
+          onChange={onSliderChange}
+        />
+      </div>
       <div className="palette__colors-grid">{colorBoxes}</div>
       {/* Footer */}
     </div>
