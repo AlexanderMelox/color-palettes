@@ -8,7 +8,7 @@ import './color-box.scss'
 const variants = {
   overlay: {
     hide: { scale: 0.1, zIndex: 0 },
-    show: { scale: 20, zIndex: 10, transition: { duration: 0.5 } },
+    show: { scale: 20, zIndex: 10, transition: { duration: 0.3 } },
     leave: { opacity: 0 },
   },
   content: {
@@ -18,24 +18,26 @@ const variants = {
   },
 }
 
-const ColorBox = ({ hex, name }) => {
+const ColorBox = ({ color, name }) => {
   const [copied, setCopied] = useState(false)
 
   const onCopy = useCallback(async () => {
-    setCopied(true)
-    await wait(1500)
-    setCopied(false)
-  }, [])
+    if (!copied) {
+      setCopied(true)
+      await wait(1000)
+      setCopied(false)
+    }
+  }, [copied])
 
   return (
-    <CopyToClipboard text={hex} onCopy={onCopy}>
-      <div className="color-box" style={{ background: hex }}>
+    <CopyToClipboard text={color} onCopy={onCopy}>
+      <div className="color-box" style={{ background: color }}>
         <AnimatePresence>
           {copied && (
             <motion.div initial="hide" animate="show" exit="leave">
               <motion.div
                 className="color-box__overlay"
-                style={{ backgroundColor: hex }}
+                style={{ backgroundColor: color }}
                 variants={variants.overlay}
               />
               <motion.div
@@ -43,7 +45,7 @@ const ColorBox = ({ hex, name }) => {
                 className="color-box__overlay-content"
               >
                 <h1>Copied!</h1>
-                <p>{hex}</p>
+                <p>{color}</p>
               </motion.div>
             </motion.div>
           )}

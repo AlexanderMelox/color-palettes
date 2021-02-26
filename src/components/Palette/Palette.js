@@ -6,17 +6,32 @@ import './palette.scss'
 
 const Palette = ({ palette }) => {
   const [level, setLevel] = useState(500)
+  const [format, setFormat] = useState('hex')
 
   const colorBoxes = useMemo(
-    () => palette.colors[level].map((color) => <ColorBox {...color} />),
-    [palette.colors, level]
+    () =>
+      palette.colors[level].map((color) => (
+        <ColorBox key={color.name} color={color[format]} name={color.name} />
+      )),
+    [palette.colors, level, format]
   )
 
-  const onSliderChange = useCallback((value) => setLevel(value), [])
+  const onSliderChange = useCallback((value) => {
+    setLevel(value)
+  }, [])
+
+  const onColorFormatChange = useCallback((newColorFormat) => {
+    setFormat(newColorFormat)
+  }, [])
 
   return (
     <div className="palette">
-      <Navbar level={level} onSliderChange={onSliderChange} />
+      <Navbar
+        level={level}
+        format={format}
+        onSliderChange={onSliderChange}
+        onColorFormatChange={onColorFormatChange}
+      />
       <div className="palette__colors-grid">{colorBoxes}</div>
       {/* Footer */}
     </div>
