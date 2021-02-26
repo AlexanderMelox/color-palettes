@@ -33,7 +33,10 @@ const Palette = ({ palette }) => {
         onColorFormatChange={onColorFormatChange}
       />
       <div className="palette__colors-grid">{colorBoxes}</div>
-      {/* Footer */}
+      <footer className="palette__footer">
+        {palette.paletteName}{' '}
+        <span className="palette__footer-emoji">{palette.emoji}</span>
+      </footer>
     </div>
   )
 }
