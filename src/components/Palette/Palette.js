@@ -8,13 +8,11 @@ const Palette = ({ palette }) => {
   const [level, setLevel] = useState(500)
   const [format, setFormat] = useState('hex')
 
-  const colorBoxes = useMemo(
-    () =>
-      palette.colors[level].map((color) => (
-        <ColorBox key={color.name} color={color[format]} name={color.name} />
-      )),
-    [palette.colors, level, format]
-  )
+  const colorBoxes = useMemo(() => {
+    return palette.colors[level].map((color) => (
+      <ColorBox key={color.name} color={color[format]} name={color.name} />
+    ))
+  }, [palette.colors, level, format])
 
   const onSliderChange = useCallback((value) => {
     setLevel(value)

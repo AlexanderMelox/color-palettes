@@ -1,7 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import Palette from './components/Palette'
-
+import PalettePage from './pages/palette-page'
 import { seedColors, generatePalette } from './utils'
 
 const App = () => {
@@ -11,12 +10,9 @@ const App = () => {
         home
       </Route>
       <Route exact path="/palette/:id">
-        palette
+        <PalettePage />
       </Route>
     </Switch>
-    // <div>
-    //   <Palette palette={generatePalette(seedColors[4])} />
-    // </div>
   )
 }
 
