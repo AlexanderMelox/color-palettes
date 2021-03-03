@@ -1,13 +1,13 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import PalettePage from './pages/palette-page'
-import { seedColors, generatePalette } from './utils'
+import HomePage from './pages/home'
 
 const App = () => {
   return (
     <Switch>
       <Route exact path="/">
-        home
+        <HomePage />
       </Route>
       <Route exact path="/palette/:id">
         <PalettePage />
