@@ -4,7 +4,11 @@ import styled from 'styled-components/macro'
 const MiniPalette = ({ colors, paletteName, emoji, id }) => {
   return (
     <Wrapper>
-      <Colors>colors</Colors>
+      <Colors>
+        {colors.map(({ color, name }) => (
+          <Color key={color.name} bg={color} />
+        ))}
+      </Colors>
       <Title>
         {paletteName} <Emoji>{emoji}</Emoji>
       </Title>
@@ -23,7 +27,17 @@ const Wrapper = styled.div`
 `
 
 const Colors = styled.div`
-  background-color: gray;
+  height: 150px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  border-radius: 5px;
+  overflow: hidden;
+`
+
+const Color = styled.div`
+  background-color: ${(props) => props.bg};
 `
 
 const Title = styled.h5`

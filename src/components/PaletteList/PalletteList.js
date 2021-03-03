@@ -17,7 +17,7 @@ const PalletteList = ({ palettes }) => {
               key={palette.id}
               id={palette.id}
               paletteName={palette.paletteName}
-              color={palette.colors}
+              colors={palette.colors}
               emoji={palette.emoji}
             />
           ))}
