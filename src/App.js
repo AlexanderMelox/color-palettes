@@ -12,6 +12,9 @@ const App = () => {
       <Route exact path="/palette/:id">
         <PalettePage />
       </Route>
+      <Route exact path="/palette/:paletteId/:colorId">
+        <h1>single color page</h1>
+      </Route>
     </Switch>
   )
 }

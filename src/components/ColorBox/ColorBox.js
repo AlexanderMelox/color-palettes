@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import wait from 'waait'
 
 import './color-box.scss'
+import { Link } from 'react-router-dom'
 
 const variants = {
   overlay: {
@@ -56,7 +57,13 @@ const ColorBox = ({ color, name }) => {
           </div>
           <button className="color-box__copy-button">Copy</button>
         </div>
-        <div className="color-box__see-more">More</div>
+        <Link
+          onClick={(e) => e.stopPropagation()}
+          to="/"
+          className="color-box__see-more"
+        >
+          More
+        </Link>
       </div>
     </CopyToClipboard>
   )
