@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Switch } from 'react-router-dom'
 import PalettePage from './pages/palette-page'
 import HomePage from './pages/home'
+import SingleColorPalettePage from './pages/single-color-palette'
 
 const App = () => {
   return (
@@ -13,7 +14,7 @@ const App = () => {
         <PalettePage />
       </Route>
       <Route exact path="/palette/:paletteId/:colorId">
-        <h1>single color page</h1>
+        <SingleColorPalettePage />
       </Route>
     </Switch>
   )

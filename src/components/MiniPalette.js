@@ -6,7 +6,7 @@ const MiniPalette = ({ colors, paletteName, emoji, goToPalette }) => {
     <Wrapper onClick={goToPalette}>
       <Colors>
         {colors.map(({ color, name }) => (
-          <Color key={color.name} bg={color} />
+          <Color key={name} bg={color} />
         ))}
       </Colors>
       <Title>

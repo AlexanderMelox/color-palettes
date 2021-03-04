@@ -10,9 +10,14 @@ const Palette = ({ palette }) => {
 
   const colorBoxes = useMemo(() => {
     return palette.colors[level].map((color) => (
-      <ColorBox key={color.name} color={color[format]} name={color.name} />
+      <ColorBox
+        key={color.name}
+        moreUrl={`/palette/${palette.id}/${color.id}`}
+        color={color[format]}
+        name={color.name}
+      />
     ))
-  }, [palette.colors, level, format])
+  }, [palette, level, format])
 
   const onSliderChange = useCallback((value) => {
     setLevel(value)
