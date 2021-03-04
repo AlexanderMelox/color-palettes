@@ -1,2 +1,2 @@
-import PaletteList from './PalletteList'
+import PaletteList from './PaletteList'
 export default PaletteList

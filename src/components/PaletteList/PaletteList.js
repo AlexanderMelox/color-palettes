@@ -1,8 +1,12 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import MiniPalette from '../MiniPalette'
 
-const PalletteList = ({ palettes }) => {
+const PaletteList = ({ palettes }) => {
+  const history = useHistory()
+  const goToPalette = (id) => history.push(`/palette/${id}`)
+
   return (
     <Wrapper>
       <Container>
@@ -19,6 +23,7 @@ const PalletteList = ({ palettes }) => {
               paletteName={palette.paletteName}
               colors={palette.colors}
               emoji={palette.emoji}
+              goToPalette={() => goToPalette(palette.id)}
             />
           ))}
         </Palettes>
@@ -61,4 +66,4 @@ const Palettes = styled.div`
   grid-gap: 1rem;
 `
 
-export default PalletteList
+export default PaletteList

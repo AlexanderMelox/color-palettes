@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-const MiniPalette = ({ colors, paletteName, emoji, id }) => {
+const MiniPalette = ({ colors, paletteName, emoji, goToPalette }) => {
   return (
-    <Wrapper>
+    <Wrapper onClick={goToPalette}>
       <Colors>
         {colors.map(({ color, name }) => (
           <Color key={color.name} bg={color} />
