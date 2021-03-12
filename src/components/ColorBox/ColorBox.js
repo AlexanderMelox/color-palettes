@@ -19,7 +19,7 @@ const variants = {
   },
 }
 
-const ColorBox = ({ color, name, moreUrl }) => {
+const ColorBox = ({ color, name, moreUrl, showLink = true }) => {
   const [copied, setCopied] = useState(false)
 
   const onCopy = useCallback(async () => {
@@ -57,13 +57,15 @@ const ColorBox = ({ color, name, moreUrl }) => {
           </div>
           <button className="color-box__copy-button">Copy</button>
         </div>
-        <Link
-          onClick={(e) => e.stopPropagation()}
-          to={moreUrl}
-          className="color-box__see-more"
-        >
-          More
-        </Link>
+        {showLink && (
+          <Link
+            onClick={(e) => e.stopPropagation()}
+            to={moreUrl}
+            className="color-box__see-more"
+          >
+            More
+          </Link>
+        )}
       </div>
     </CopyToClipboard>
   )
