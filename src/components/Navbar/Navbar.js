@@ -22,24 +22,28 @@ const Navbar = ({ level, format, onSliderChange, onColorFormatChange }) => {
     [onColorFormatChange]
   )
 
+  const showSlider = level && onSliderChange
+
   return (
     <>
       <header className="navbar">
         <div className="navbar__logo">
           <Link to="/">reactcolorpicker</Link>
         </div>
-        <div className="slider-container">
-          <span>Level: {level}</span>
-          <div className="slider">
-            <Slider
-              min={100}
-              max={900}
-              step={100}
-              defaultValue={level}
-              onChange={onSliderChange}
-            />
+        {showSlider && (
+          <div className="slider-container">
+            <span>Level: {level}</span>
+            <div className="slider">
+              <Slider
+                min={100}
+                max={900}
+                step={100}
+                defaultValue={level}
+                onChange={onSliderChange}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div className="navbar__select-container">
           <Select value={format} onChange={handleFormatChange}>
             <MenuItem value="hex">HEX - #ffffff</MenuItem>

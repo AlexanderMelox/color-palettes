@@ -17,7 +17,7 @@ const SingleColorPalettePage = () => {
 
   return (
     <div>
-      <SingleColorPalette shades={shades} />
+      <SingleColorPalette shades={shades} palette={palette} />
     </div>
   )
 }

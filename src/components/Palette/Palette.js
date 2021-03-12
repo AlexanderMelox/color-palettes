@@ -1,12 +1,14 @@
 import React, { useState, useMemo, useCallback } from 'react'
 import ColorBox from '../ColorBox'
 import Navbar from '../Navbar'
+import useColorFormat from '../../hooks/useColorFormat'
 
 import './palette.scss'
+import PaletteFooter from '../PaletteFooter'
 
 const Palette = ({ palette }) => {
   const [level, setLevel] = useState(500)
-  const [format, setFormat] = useState('hex')
+  const { format, onColorFormatChange } = useColorFormat()
 
   const colorBoxes = useMemo(() => {
     return palette.colors[level].map((color) => (
@@ -23,10 +25,6 @@ const Palette = ({ palette }) => {
     setLevel(value)
   }, [])
 
-  const onColorFormatChange = useCallback((newColorFormat) => {
-    setFormat(newColorFormat)
-  }, [])
-
   return (
     <div className="palette">
       <Navbar
@@ -36,10 +34,7 @@ const Palette = ({ palette }) => {
         onColorFormatChange={onColorFormatChange}
       />
       <div className="palette__colors-grid">{colorBoxes}</div>
-      <footer className="palette__footer">
-        {palette.paletteName}{' '}
-        <span className="palette__footer-emoji">{palette.emoji}</span>
-      </footer>
+      <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
     </div>
   )
 }
